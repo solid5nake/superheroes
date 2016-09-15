@@ -1,11 +1,18 @@
 import React from 'react';
+import { render } from 'react-dom';
+import { Router, Route, IndexRoute, Link, browserHistory } from 'react-router';
 
-class App extends React.Component {
-    render() {
-        return (
-            <h1>Hello World!</h1>
-        );
-    }
-}
+import App from './components/App';
+import Index from './components/Index';
+import About from './components/About';
 
-export default App;
+render((
+  <div>
+    <Router history={ browserHistory }>
+      <Route path="/" component={ App }>
+        <IndexRoute component={ Index }/>
+        <Route path="about" component={ About }/>
+      </Route>
+    </Router>
+  </div>
+), document.getElementById('root'))
