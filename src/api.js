@@ -5,6 +5,16 @@ class Api {
     return this.request('characters');
   }
 
+  creators() {
+    return this.request('creators');
+  }
+  comics() {
+    return this.request('comics');
+  }
+  events() {
+    return this.request('events');
+  }
+
   toQueryString(qs) {
     return Object.keys(qs).
                   map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(qs[key])).
@@ -32,7 +42,8 @@ class Api {
 
     return fetch(`${url}/${path}?${this.toQueryString(qs)}`, {
       method: 'GET',
-      headers: headers
+      headers: headers,
+      body: JSON
     }).then(
       (response) => response.json()
     );
@@ -40,4 +51,5 @@ class Api {
 }
 
 const api = new Api()
+
 export default api
