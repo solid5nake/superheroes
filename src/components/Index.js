@@ -4,18 +4,18 @@ import api from '../api';
 
 class Index extends React.Component {
   render() {
-    var characters = api.characters();
+    let characters = api.characters();
+    let creators = api.creators();
+    let comics = api.comics();
+    let events = api.events();
 
-    console.log(characters);
+
+    console.log(comics);
     return (
       <div>
         <h1>Characters</h1>
         <ul>
-          {
-            characters.map(function(name, index) {
-              return <li>{name}</li>;
-            })
-          }
+
         </ul>
       </div>
     );
