@@ -5,7 +5,8 @@ import api from '../api';
 class Index extends React.Component {
   render() {
     var characters = api.characters();
-    console.log(characters.keys);
+
+    console.log(characters);
     return (
       <div>
         <h1>Characters</h1>
